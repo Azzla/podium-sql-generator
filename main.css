@@ -1,0 +1,76 @@
+* {
+    padding: 0px;
+}
+
+body {
+    background-color: black;
+    color: azure;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+body .outer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+}
+
+
+.search-container {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 650px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid azure;
+    justify-content: space-around;
+}
+
+.container .inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .inner div {
+    margin-bottom: 25px;
+}
+
+.select-daterange label {
+    margin-top:10px;
+    display: block;
+}
+.select-daterange .ranging {
+    margin-top: 0px;
+    text-decoration: underline;
+}
+.select-daterange .from {
+    margin-top: 0px;
+}
+
+.submit {
+    margin-top: 25px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: large;
+}
+
+#result {
+    margin-top: 25px;
+    width: 100%;
+    min-height: 200px;
+}
+
+#copied {
+    display: none;
+    color: chartreuse;
+    margin-top: 10px;
+}

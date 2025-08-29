@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Integrations SQL Generator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="outer">
+        <div class="search-container">
+            <h2>Search Executions</h2>
+            <div class="container">
+                <div class="inner">
+                    <div class="select-integration">
+                        <label for="integration">CRM:</label>
+                        <select name="integration" id="integration">
+                            <option value="VinSolutions">VinSolutions</option>
+                            <option value="Tekion">Tekion</option>
+                            <option value="DealerTrack">DealerTrack</option>
+                            <option value="HubSpot">HubSpot</option>
+                        </select>
+                    </div>
+                    <div class="select-location">
+                        <label for="location">Location UID:</label>
+                        <input type="text" id="location" value="location_uid_here">
+                    </div>
+                    <div class="select-task">
+                        <label for="task_type">Task Type:</label>
+                        <select name="task_type" id="task_type">
+                            <option value="">All</option>
+                            <option value="lead_sync">Lead Sync</option>
+                            <option value="conversation_sync">Conversation Sync</option>
+                            <option value="conversation_assignment">Conversation Assignment</option>
+                            <option value="stc">Stop The Clock</option>
+                            <option value="appointment_sync">Appointment Sync</option>
+                            <option value="ai_appointment_writeback">AI Appointment Writeback</option>
+                        </select>
+                    </div>
+                    <div class="select-limit">
+                        <label for="limit">Max Items:</label>
+                        <input type="text" id="limit" value="100">
+                    </div>
+                    <div class="select-breadth">
+                        <label>Search Breadth:</label><br>
+                        <input type="radio" id="all" value="*" name="breadth" checked="true">
+                        <label for="all">All Items</label><br>
+                        <input type="radio" id="distinct" value="distinct" name="breadth">
+                        <label for="distinct">Distinct Items</label><br>
+                    </div>
+                    <div class="select-order">
+                        <label>Sort Results:</label><br>
+                        <input type="radio" id="completion" value="bridge_execution_completed_at" name="order" checked="true">
+                        <label for="completion">Completed Items</label><br>
+                        <input type="radio" id="failure" value="bridge_execution_failed_at" name="order">
+                        <label for="failure">Failed Items</label><br>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="inner">
+                    <div class="select-daterange">
+                        <label class="ranging">Date Range</label><br>
+                        <label for="date-from" class="from">From:</label>
+                        <input type="date" id="date-from"><br>
+                        <label for="date-to">To:</label>
+                        <input type="date" id="date-to">
+                    </div>
+                    <div class="find-string">
+                        <label>Payload Contains:</label><br>
+                        <input type="text" id="payload-string">
+                    </div>
+                </div>
+            </div>
+            <button class="submit" id="submit">Generate</button>
+            <textarea class="result" name="result" id="result"></textarea>
+            <div id="copied">Copied SQL to Clipboard</div>
+        </div>
+    </div>
+</body>
+</html>
