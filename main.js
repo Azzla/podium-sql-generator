@@ -46,6 +46,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         //Copy the string to clipboard
         navigator.clipboard.writeText(results_area.value);
         document.getElementById('copied').style.display = "block";
+        setTimeout(() => {
+            document.getElementById('copied').style.display = "none";
+        }, 2000);
     });
 });
 
