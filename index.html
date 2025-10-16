@@ -4,6 +4,9 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Integrations SQL Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
@@ -13,7 +16,6 @@
         <div class="search-container">
             <h2>Search Executions</h2>
             <div class="container">
-                <div class="inner">
                     <div class="select-integration">
                         <label for="integration">CRM:</label>
                         <select name="integration" id="integration">
@@ -44,35 +46,45 @@
                         <label for="limit">Max Items:</label>
                         <input type="text" id="limit" value="100">
                     </div>
-                    <div class="select-breadth">
-                        <label>Search Breadth:</label><br>
-                        <input type="radio" id="all" value="*" name="breadth" checked="true">
-                        <label for="all">All Items</label><br>
-                        <input type="radio" id="distinct" value="distinct" name="breadth">
-                        <label for="distinct">Distinct Items</label><br>
-                    </div>
-                    <div class="select-order">
-                        <label>Sort Results:</label><br>
-                        <input type="radio" id="completion" value="bridge_execution_completed_at" name="order" checked="true">
-                        <label for="completion">Completed Items</label><br>
-                        <input type="radio" id="failure" value="bridge_execution_failed_at" name="order">
-                        <label for="failure">Failed Items</label><br>
-                    </div>
-                </div>
-
-                <!-- Column 2 -->
-                <div class="inner">
-                    <div class="select-daterange">
-                        <label for="date-from" class="from">From:</label>
-                        <input type="date" id="date-from"><br>
-                        <label for="date-to">To:</label>
-                        <input type="date" id="date-to">
-                    </div>
                     <div class="find-string">
-                        <label>Payload Contains:</label><br>
+                        <label>Payload Contains:</label>
                         <input type="text" id="payload-string">
                     </div>
-                </div>
+                    <div>
+                        <label for="date-from" class="from">From Date:</label>
+                        <input type="date" id="date-from">
+                    </div>
+                    <div>
+                        <label for="date-to">To Date:</label>
+                        <input type="date" id="date-to">
+                    </div>
+
+                        <div class="select-breadth">
+                        <label>Search Breadth:</label>
+                        <div>
+                            <div>
+                                <input type="radio" id="all" value="*" name="breadth" checked="true">
+                                <label for="all">All Items</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="distinct" value="distinct" name="breadth">
+                                <label for="distinct">Distinct Items</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-order">
+                        <label>Sort Results:</label>
+                        <div>
+                            <div>
+                                <input type="radio" id="completion" value="bridge_execution_completed_at" name="order" checked="true">
+                                <label for="completion">Completed Items</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="failure" value="bridge_execution_failed_at" name="order">
+                                <label for="failure">Failed Items</label>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <button class="submit" id="submit">Generate</button>
             <textarea class="result" name="result" id="result"></textarea>

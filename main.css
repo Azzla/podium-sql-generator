@@ -1,10 +1,15 @@
 * {
     padding: 0px;
+    font-family: 'Roboto';
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 body {
-    background-color: black;
-    color: azure;
+    background-color: #17313E;
+    color: #F3E2D4;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,33 +23,60 @@ body .outer {
     max-width: 1200px;
 }
 
+label {
+    font-weight: bold;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+
+input[type="text"], input[type="date"], select {
+    background-color: #17313E;
+    color:#F3E2D4;
+    border: 2px solid #415E72;
+    padding: 5px 10px;
+    border-radius: 0%;
+}
+
+input[type="radio"] {
+    accent-color: #415E72;
+    margin-right: 5px;
+    max-width: 18px;
+}
 
 .search-container {
-  margin-top: 300px;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   width: 650px;
 }
 
 .container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
     padding: 10px;
-    border: 1px solid azure;
-    justify-content: space-around;
+    border: 2px solid #415E72;
 }
 
-.container .inner {
+.container > div {
+    padding: 10px 25px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    min-height: 30px;
+}
+
+.container > div > div {
     display: flex;
-    flex-direction: column;
 }
 
-.container .inner div {
-    margin-bottom: 25px;
+.container > div > div > div {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    width: 50%;
 }
 
 .select-daterange label {
-    margin-top:10px;
+    margin-top: 10px;
+    margin-right: 10px;
     display: block;
 }
 .select-daterange .ranging {
@@ -56,17 +88,27 @@ body .outer {
 }
 
 .submit {
-    margin-top: 25px;
+    margin-top: 35px;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: large;
+    background-color: #415E72;
+    border: 2px solid #415E72;
+    color:#F3E2D4;
+}
+
+.submit:hover {
+    background-color:#17313E;
 }
 
 #result {
-    margin-top: 25px;
-    width: 100%;
-    min-height: 200px;
+    margin-top: 15px;
+    min-height: 70px;
+    background-color: #17313E;
+    border: 2px solid #415E72;
+    color:#F3E2D4;
+    padding: 10px;
 }
 
 #copied {
