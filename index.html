@@ -19,6 +19,7 @@
                     <div class="select-integration">
                         <label for="integration">CRM:</label>
                         <select name="integration" id="integration">
+                            <option disabled selected value="none">-- Select Integration --</option>
                             <option value="VinSolutions">VinSolutions</option>
                             <option value="Tekion">Tekion</option>
                             <option value="DealerTrack">DealerTrack</option>
@@ -28,7 +29,7 @@
                     </div>
                     <div class="select-location">
                         <label for="location">Location UID:</label>
-                        <input type="text" id="location" value="location_uid_here">
+                        <input type="text" id="location" value="" placeholder="00000000-0000-0000-0000-000000000000">
                     </div>
                     <div class="select-task">
                         <label for="task_type">Task Type:</label>
@@ -48,7 +49,7 @@
                     </div>
                     <div class="find-string">
                         <label>Payload Contains:</label>
-                        <input type="text" id="payload-string">
+                        <input type="text" id="payload-string" placeholder="LeadID, CustomerID, Phone Number...">
                     </div>
                     <div>
                         <label for="date-from" class="from">From Date:</label>
@@ -58,7 +59,6 @@
                         <label for="date-to">To Date:</label>
                         <input type="date" id="date-to">
                     </div>
-
                         <div class="select-breadth">
                         <label>Search Breadth:</label>
                         <div>
@@ -72,19 +72,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="select-order">
-                        <label>Sort Results:</label>
+                <div class="select-order">
+                    <label>Sort Results:</label>
+                    <div>
                         <div>
-                            <div>
-                                <input type="radio" id="completion" value="bridge_execution_completed_at" name="order" checked="true">
-                                <label for="completion">Completed Items</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="failure" value="bridge_execution_failed_at" name="order">
-                                <label for="failure">Failed Items</label>
-                            </div>
+                            <input type="radio" id="completion" value="bridge_execution_completed_at" name="order" checked="true">
+                            <label for="completion">Completed Items</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="failure" value="bridge_execution_failed_at" name="order">
+                            <label for="failure">Failed Items</label>
                         </div>
                     </div>
+                </div>
             </div>
             <button class="submit" id="submit">Generate</button>
             <textarea class="result" name="result" id="result"></textarea>
