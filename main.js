@@ -2,17 +2,48 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const submit_button = document.getElementById("submit");
     var results_area    = document.getElementById("result");
 
-    submit_button.addEventListener("click", function(e) {
-        const integration = document.getElementById("integration");
-        const loc_uid     = document.getElementById("location");
-        const task_type   = document.getElementById("task_type");
-        const max_items   = document.getElementById("limit");
-        const breadth     = document.querySelector("input[name='breadth']:checked");
-        const order       = document.querySelector("input[name='order']:checked");
-        const date_from   = document.getElementById("date-from");
-        const date_to     = document.getElementById("date-to");
-        const payload_str = document.getElementById("payload-string");
+    const integration = document.getElementById("integration");
+    const loc_uid     = document.getElementById("location");
+    const max_items   = document.getElementById("limit");
+    const breadth     = document.querySelector("input[name='breadth']:checked");
+    const order       = document.querySelector("input[name='order']:checked");
+    const date_from   = document.getElementById("date-from");
+    const date_to     = document.getElementById("date-to");
+    const payload_str = document.getElementById("payload-string");
 
+    // Dynamically load available tasks based on chosen integration
+    var task_type   = document.getElementById("task_type");
+    integration.addEventListener('change', function(e) {
+        const which = integration.value
+        switch (which) {
+            case "VinSolutions":
+                task_type.innerHTML = vinsolutions_tasks;
+                break;
+            case "CDK CRM":
+                task_type.innerHTML = cdk_crm_tasks;
+                break;
+            case "Tekion":
+                task_type.innerHTML = tekion_tasks;
+                break;
+            case "Dealertrack":
+                task_type.innerHTML = dealertrack_tasks;
+                break;
+            case "HomeNet":
+                task_type.innerHTML = homenet_tasks;
+                break;
+            case "HubSpot SMS":
+                task_type.innerHTML = hubspot_tasks;
+                break;
+            case "Meta":
+                task_type.innerHTML = meta_tasks;
+                break;
+            case "ServiceTitan":
+                task_type.innerHTML = servicetitan_tasks;
+                break;
+        };
+    });
+
+    submit_button.addEventListener("click", function(e) {
         //insert this extra string after 'distinct' and before 'from'
         var breadth_p1 = `select ${breadth.value} `
         if (breadth.value === 'distinct') {
@@ -55,3 +86,62 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
 });
 
+const vinsolutions_tasks = `
+    <option value="">All</option>
+    <option value="lead_sync">Lead Sync</option>
+    <option value="conversation_sync">Conversation Sync</option>
+    <option value="conversation_assignment">Conversation Assignment</option>
+    <option value="conversation_assignment_update">Conversation Assignment Update</option>
+    <option value="stc">Stop The Clock</option>
+    <option value="appointment_sync">Appointment Sync</option>
+    <option value="ai_appointment_writeback">AI Appointment Writeback</option>
+`;
+
+const cdk_crm_tasks = `
+    <option value="">All</option>
+    <option value="sync_opportunities">Sync Opportunities</option>
+    <option value="process_opportunity">Process Opportunity</option>
+    <option value="sync_conversation_assignment">Conversation Assignment Sync</option>
+`;
+
+const tekion_tasks = `
+    <option value="">All</option>
+    <option value="sync_leads">Lead Sync</option>
+    <option value="conversation_assignment">Conversation Assignment</option>
+    <option value="leads_conversation_writeback">Conversation Writeback</option>
+    <option value="leads_writeback">Lead Writeback</option>
+    <option value="ai_appointment_writeback">AI Appointment Writeback</option>
+    <option value="import_contacts">Import Contacts</option>
+    <option value="import_assignees">Import Assignees</option>
+    <option value="sync_assignees">Sync Assignees</option>
+`;
+
+const dealertrack_tasks = `
+    <option value="">All</option>
+    <option value="sync_deals">Sync Deals</option>
+    <option value="import_deals">Import Deals</option>
+`;
+
+const homenet_tasks = `
+    <option value="">All</option>
+    <option value="inventory">Inventory</option>
+    <option value="import_inventory">Import Inventory</option>
+    <option value="create_salesforce_case">Create Salesforce Case</option>
+`;
+
+const hubspot_tasks = `
+    <option value="">All</option>
+    <option value="leads_conversation_writeback">Conversation Writeback</option>
+    <option value="conversation_sync">Conversation Sync</option>
+`;
+
+const meta_tasks = `
+    <option value="">All</option>
+    <option value="process_lead">Process Lead</option>
+`;
+
+const servicetitan_tasks = `
+    <option value="">All</option>
+    <option value="sync_job_events">Sync Job Events</option>
+    <option value="sync_contacts">Sync Contacts</option>
+`;

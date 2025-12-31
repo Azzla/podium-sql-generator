@@ -21,10 +21,13 @@
                         <select name="integration" id="integration">
                             <option disabled selected value="none">-- Select Integration --</option>
                             <option value="VinSolutions">VinSolutions</option>
+                            <option value="CDK CRM">CDK CRM</option>
                             <option value="Tekion">Tekion</option>
-                            <option value="DealerTrack">DealerTrack</option>
-                            <option value="HubSpot">HubSpot</option>
-                            <option value="iPacket">iPacket</option>
+                            <option value="Dealertrack">Dealertrack</option>
+                            <option value="HomeNet">HomeNet</option>
+                            <option value="HubSpot SMS">HubSpot</option>
+                            <option value="Meta">Meta</option>
+                            <option value="ServiceTitan">ServiceTitan</option>
                         </select>
                     </div>
                     <div class="select-location">
@@ -34,13 +37,7 @@
                     <div class="select-task">
                         <label for="task_type">Task Type:</label>
                         <select name="task_type" id="task_type">
-                            <option value="">All</option>
-                            <option value="lead_sync">Lead Sync</option>
-                            <option value="conversation_sync">Conversation Sync</option>
-                            <option value="conversation_assignment">Conversation Assignment</option>
-                            <option value="stc">Stop The Clock</option>
-                            <option value="appointment_sync">Appointment Sync</option>
-                            <option value="ai_appointment_writeback">AI Appointment Writeback</option>
+                            <!-- Dynamically Filled -->
                         </select>
                     </div>
                     <div class="select-limit">
@@ -64,7 +61,7 @@
                         <div>
                             <div>
                                 <input type="radio" id="all" value="*" name="breadth" checked="true">
-                                <label for="all">All Items</label>
+                                <label for="all">Any Items</label>
                             </div>
                             <div>
                                 <input type="radio" id="distinct" value="distinct" name="breadth">
